@@ -180,19 +180,22 @@
   .hero_slider .swiper-button-prev {
     color: transparent !important;
     height: 30px !important;
+    z-index: 50 !important;
   }
 
-  /* .hero_slider .swiper-button-next::after,
+  .hero_slider .swiper-button-next::after,
   .hero_slider .swiper-button-prev::after {
     display: none;
-  } */
-
-  .hero_slider .swiper-button-next {
-    right: -50px !important;
   }
 
-  .hero_slider .swiper-button-prev {
-    left: -50px !important;
+  @media (min-width: 1024px) {
+    .hero_slider .swiper-button-next {
+      right: -50px !important;
+    }
+
+    .hero_slider .swiper-button-prev {
+      left: -50px !important;
+    }
   }
 
   .hero_slider .swiper-pagination-bullet {

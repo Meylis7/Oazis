@@ -8,7 +8,7 @@ export default function Contacts() {
       <section className="block pb-[60px]">
         <div className="auto_container">
           <div className="wrap">
-            <h1 className="text-[36px] font-semibold leading-tight w-full text-center max-w-[690px] mx-auto uppercase">
+            <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full text-center max-w-[690px] mx-auto uppercase">
               Остались вопросы? <span className="text-[#FF6A00]"> Свяжитесь с нами удобным способом </span>
             </h1>
 

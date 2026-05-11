@@ -11,7 +11,7 @@ export default function Registration() {
       <section className="block">
         <div className="auto_container">
           <div className="wrap">
-            <h1 className="text-[36px] font-semibold leading-tight w-full text-center max-w-[690px] mx-auto uppercase">
+            <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full text-center max-w-[690px] mx-auto uppercase">
               <span className="text-[#FF6A00]">3 шага </span> регистрации
             </h1>
 
@@ -104,10 +104,10 @@ export default function Registration() {
         <section className={`step-1 transition-all duration-500 ease-in-out ${activeStep === 1 ? 'opacity-100 translate-y-0 visible relative z-10' : 'opacity-0 translate-y-8 invisible absolute top-0 left-0 w-full -z-10'}`}>
           <div className="auto_container">
             <div className="wrap">
-              <h1 className="text-[36px] font-semibold leading-tight w-full uppercase">
+              <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full uppercase">
                 <span className="text-[#FF6A00]">Заполните регистрацию </span> для участия ребёнка в лагере
               </h1>
-              <p className="text-base font-normal leading-6 mt-4 w-full max-w-[915px]">
+              <p className="text-sm md:text-base font-normal leading-6 mt-4 w-full max-w-[915px]">
                 После регистрации вы будете включены в Viber группу лагеря, где будет выставляться подробная информация каждого дня. Видео, фото и короткие сообщения. Скачайте и оформитесь на Viber если у вас нет аккаунта
               </p>
 
@@ -410,10 +410,10 @@ export default function Registration() {
         <section className={`step-2 transition-all duration-500 ease-in-out ${activeStep === 2 ? 'opacity-100 translate-y-0 visible relative z-10' : 'opacity-0 translate-y-8 invisible absolute top-0 left-0 w-full -z-10'}`}>
           <div className="auto_container z-10">
             <div className="wrap">
-              <h1 className="text-[36px] font-semibold leading-tight w-full max-w-[650px] mx-auto uppercase text-center">
+              <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[650px] mx-auto uppercase text-center">
                 PLEASE READ CAREFULLY. <span className="text-[#FF6A00]"> THIS DOCUMENT CONTAINS A RELEASE AND WAIVER OF LIABILITY </span>
               </h1>
-              <p className="text-base font-normal leading-6 mt-4 w-full max-w-[690px] mx-auto text-center">
+              <p className="text-sm md:text-base font-normal leading-6 mt-4 w-full max-w-[690px] mx-auto text-center">
                 Пожалуйста, внимательно прочитайте документ ниже. Для завершения регистрации необходимо подтвердить согласие родителя и ребёнка
               </p>
 
@@ -736,7 +736,7 @@ export default function Registration() {
         <section className={`step-3 transition-all duration-500 ease-in-out ${activeStep === 3 ? 'opacity-100 translate-y-0 visible relative z-10' : 'opacity-0 translate-y-8 invisible absolute top-0 left-0 w-full -z-10'}`}>
           <div className="auto_container">
             <div className="wrap">
-              {/* <h1 className="text-[36px] font-semibold leading-tight w-full uppercase">
+              {/* <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full uppercase">
                 <span className="text-[#FF6A00]">Шаг 3</span>
               </h1> */}
             </div>

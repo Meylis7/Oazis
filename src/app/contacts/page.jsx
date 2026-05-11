@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Contacts() {
   return (
-    <main className="relative block mt-[80px]">
+    <main className="relative block mt-10 md:mt-[80px] mb-[60px]">
       <section className="block pb-[60px]">
         <div className="auto_container">
           <div className="wrap">
@@ -12,8 +12,8 @@ export default function Contacts() {
               Остались вопросы? <span className="text-[#FF6A00]"> Свяжитесь с нами удобным способом </span>
             </h1>
 
-            <div className="grid grid-cols-12 mt-10 gap-5">
-              <div className="block col-span-7 rounded-xl overflow-hidden">
+            <div className="grid grid-cols-12 mt-6 md:mt-10 gap-5">
+              <div className="block col-span-12 md:col-span-7 rounded-xl overflow-hidden">
                 <Image
                   width={670}
                   height={400}
@@ -23,24 +23,24 @@ export default function Contacts() {
                 />
               </div>
 
-              <div className="block col-span-5">
+              <div className="block col-span-12 md:col-span-5">
                 <form action="#">
                   <div className="block mb-3">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="name">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="name">
                       Имя
                     </label>
                     <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="name" placeholder="Имя" />
                   </div>
 
                   <div className="block mb-3">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="email">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="email">
                       Email
                     </label>
                     <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="email" id="email" placeholder="Email" />
                   </div>
 
                   <div className="block mb-3">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="message">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="message">
                       Сообщение
                     </label>
                     <textarea className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full resize-none h-[120px]" name="message" id="message"></textarea>
@@ -53,25 +53,25 @@ export default function Contacts() {
               </div>
             </div>
 
-            <div className="flex mt-8">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-5 mt-8">
               <div className="block">
-                <h5 className="text-2xl font-semibold leading-tight text-[#FF6A00] mb-5">
+                <h5 className="text-lg md:text-2xl font-semibold leading-tight text-[#FF6A00] mb-5">
                   Контакты
                 </h5>
 
                 <Link href="tel:952-393-3724" className="flex items-center gap-[14px] mb-[14px]">
-                  <span className="block min-w-8">
+                  <span className="block min-w-6 md:min-w-8">
                     <svg className="w-full h-full object-contain" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M16.4487 15.0669C16.5871 14.9747 16.7464 14.9186 16.9121 14.9035C17.0778 14.8885 17.2446 14.915 17.3974 14.9806L23.2924 17.6219C23.4911 17.7068 23.6569 17.8538 23.7651 18.0408C23.8732 18.2278 23.9179 18.4448 23.8924 18.6594C23.6982 20.1107 22.9835 21.4421 21.8812 22.4059C20.779 23.3698 19.3641 23.9005 17.8999 23.8994C13.3912 23.8994 9.06721 22.1083 5.87909 18.9202C2.69097 15.7321 0.899904 11.4081 0.899904 6.89939C0.898784 5.43514 1.4295 4.02032 2.39336 2.91805C3.35721 1.81578 4.68859 1.10109 6.1399 0.906886C6.35445 0.881399 6.57147 0.926079 6.7585 1.03424C6.94552 1.1424 7.09249 1.30822 7.1774 1.50689L9.81865 7.40689C9.88355 7.55842 9.90998 7.72365 9.89558 7.88787C9.88119 8.05209 9.82642 8.2102 9.73615 8.34814L7.0649 11.5244C6.97015 11.6674 6.91412 11.8325 6.90229 12.0036C6.89045 12.1747 6.92323 12.346 6.9974 12.5006C8.03115 14.6169 10.2187 16.7781 12.3412 17.8019C12.4966 17.8757 12.6687 17.9078 12.8403 17.8948C13.012 17.8819 13.1773 17.8245 13.3199 17.7281L16.4487 15.0669Z" stroke="#FF6A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </span>
 
-                  <p className="text-2xl font-semibold leading-tight">
+                  <p className="text-lg md:text-2xl font-semibold leading-tight">
                     952-393-3724
                   </p>
                 </Link>
                 <Link href="mailto:oasiscampmn@gmail.com" className="flex items-center gap-[14px]">
-                  <span className="block min-w-8">
+                  <span className="block min-w-6 md:min-w-8">
                     <svg className="w-full h-full object-contain" width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_1_3306)">
                         <path d="M25 1L13 12L1 1" stroke="#FF6A00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
@@ -87,7 +87,7 @@ export default function Contacts() {
                     </svg>
                   </span>
 
-                  <p className="text-2xl font-semibold leading-tight">
+                  <p className="text-lg md:text-2xl font-semibold leading-tight">
                     oasiscampmn@gmail.com
                   </p>
                 </Link>
@@ -97,13 +97,13 @@ export default function Contacts() {
                 </p>
               </div>
 
-              <div className="block ml-[100px]">
-                <h5 className="text-2xl font-semibold leading-tight text-[#FF6A00] mb-5">
+              <div className="block md:ml-[100px]">
+                <h5 className="text-lg md:text-2xl font-semibold leading-tight text-[#FF6A00] mb-5">
                   Соцсети
                 </h5>
 
                 <div className="flex items-center gap-[6px]">
-                  <Link href="#" className="w-[42px] block">
+                  <Link href="#" className="w-9 md:w-[42px] block">
                     <svg className="w-full h-full object-contain" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="42" height="42" rx="8" fill="#9CB7BB" />
                       <g clip-path="url(#clip0_1_3335)">
@@ -119,7 +119,7 @@ export default function Contacts() {
                     </svg>
                   </Link>
 
-                  <Link href="#" className="w-[42px] block">
+                  <Link href="#" className="w-9 md:w-[42px] block">
                     <svg className="w-full h-full object-contain" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="42" height="42" rx="8" fill="#9CB7BB" />
                       <g clip-path="url(#clip0_1_3341)">
@@ -138,12 +138,18 @@ export default function Contacts() {
               </div>
             </div>
 
-            <div className="map relative h-[400px] bg-[#D9D9D9] rounded-xl overflow-hidden mt-[60px]">
-              <div className="block w-full max-w-[440px] absolute left-10 bottom-9 bg-white/95 rounded-lg p-[26px]">
-                <h6 className="text-2xl font-semibold leading-tight text-[#FF6A00] mb-5">
+            <div className="map relative md:h-[400px]  rounded-xl overflow-hidden mt-5 md:mt-[60px]">
+              <div style={{ position: 'relative', overflow: 'hidden', width: '100%', height: '400px' }}>
+                <a href="https://yandex.com/maps?utm_medium=mapframe&utm_source=maps" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}>Yandex Maps</a>
+                <a href="https://yandex.com/maps/?l=sat&ll=-93.951743%2C46.404009&utm_medium=mapframe&utm_source=maps&z=15" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '14px' }}>Yandex Maps</a>
+                <iframe src="https://yandex.com/map-widget/v1/?l=sat&ll=-93.951743%2C46.404009&z=15&pt=-93.951743,46.404009,pm2rdm" width="100%" height="100%" frameBorder="0" allowFullScreen={true} style={{ position: 'relative' }}></iframe>
+              </div>
+
+              <div className="block w-full md:max-w-[440px] mt-5 md:mt-0 relative! md:absolute md:left-10 md:bottom-9 bg-white md:bg-white/95 rounded-lg p-[18px] md:p-[26px]">
+                <h6 className="text-[18px] md:text-2xl font-semibold leading-tight text-[#FF6A00] mb-5">
                   Локация
                 </h6>
-                <p className="text-base font-normal leading-tight">
+                <p className="text-sm md:text-base font-normal leading-tight">
                   Eagle Lake Camp and Retreat Center <br />
                   17040 Co. Rd 102, Brainerd, MN 56401
                 </p>

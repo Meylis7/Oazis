@@ -11,14 +11,14 @@ export default function Registration() {
       <section className="block">
         <div className="auto_container">
           <div className="wrap">
-            <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full text-center max-w-[690px] mx-auto uppercase">
+            <h1 className="text-2xl md:text-[36px] font-semibold leading-tight uppercase">
               <span className="text-[#FF6A00]">3 шага </span> регистрации
             </h1>
 
-            <div className="steps flex items-end gap-5 mt-[-80px]">
+            <div className="steps flex flex-col lg:flex-row items-start gap-5 mt-10 relative! lg:pr-[180px]">
               <div
                 onClick={() => setActiveStep(1)}
-                className={`flex flex-col rounded-lg cursor-pointer p-[26px] w-full max-w-[307px] h-[160px] transition-all duration-300 ${activeStep === 1 ? 'active bg-[#FF6A00]/15 shadow-[4px_4px_10px_rgba(55,23,0,0.05)]' : 'bg-[#FAF2ED]'}`}
+                className={`flex flex-col rounded-lg cursor-pointer p-[26px] w-full max-w-[260px] md:max-w-[307px] min-h-[140px] md:min-h-[160px] transition-all duration-300 relative z-10 ${activeStep === 1 ? 'active bg-[#FF6A00]/15 shadow-[4px_4px_10px_rgba(55,23,0,0.05)]' : 'bg-[#FAF2ED]'}`}
               >
                 <div className="flex items-center justify-between">
                   <h6 className="bg-[#FF6A00] rounded-full py-[6px] px-[16px] text-xs font-semibold leading-tight text-white">
@@ -39,7 +39,7 @@ export default function Registration() {
 
               <div
                 onClick={() => setActiveStep(2)}
-                className={`flex flex-col rounded-lg cursor-pointer p-[26px] w-full max-w-[307px] h-[160px] transition-all duration-300 ${activeStep === 2 ? 'active bg-[#FF6A00]/15 shadow-[4px_4px_10px_rgba(55,23,0,0.05)]' : 'bg-[#FAF2ED]'}`}
+                className={`flex flex-col rounded-lg cursor-pointer p-[26px] w-full max-w-[260px] md:max-w-[307px] min-h-[140px] md:min-h-[160px] transition-all duration-300 relative z-10 ${activeStep === 2 ? 'active bg-[#FF6A00]/15 shadow-[4px_4px_10px_rgba(55,23,0,0.05)]' : 'bg-[#FAF2ED]'}`}
               >
                 <div className="flex items-center justify-between">
                   <h6 className="bg-[#FF6A00] rounded-full py-[6px] px-[16px] text-xs font-semibold leading-tight text-white">
@@ -60,7 +60,7 @@ export default function Registration() {
 
               <div
                 onClick={() => setActiveStep(3)}
-                className={`flex flex-col rounded-lg cursor-pointer p-[26px] w-full max-w-[307px] h-[160px] transition-all duration-300 ${activeStep === 3 ? 'active bg-[#FF6A00]/15 shadow-[4px_4px_10px_rgba(55,23,0,0.05)]' : 'bg-[#FAF2ED]'}`}
+                className={`flex flex-col rounded-lg cursor-pointer p-[26px] w-full max-w-[260px] md:max-w-[307px] min-h-[140px] md:min-h-[160px] transition-all duration-300 relative z-10 ${activeStep === 3 ? 'active bg-[#FF6A00]/15 shadow-[4px_4px_10px_rgba(55,23,0,0.05)]' : 'bg-[#FAF2ED]'}`}
               >
                 <div className="flex items-center justify-between">
                   <h6 className="bg-[#FF6A00] rounded-full py-[6px] px-[16px] text-xs font-semibold leading-tight text-white">
@@ -79,7 +79,7 @@ export default function Registration() {
                 </p>
               </div>
 
-              <div className="block">
+              <div className="oazisImg ">
                 <Image
                   width={670}
                   height={400}
@@ -92,7 +92,7 @@ export default function Registration() {
 
             <div className="flex items-center gap-4 w-full mt-5">
               <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-              <p className="text-base font-normal leading-tight">
+              <p className="text-sm md:text-base font-normal leading-tight">
                 После этого: вас добавят в Viber-группу лагеря
               </p>
             </div>
@@ -100,8 +100,8 @@ export default function Registration() {
         </div>
       </section>
 
-      <div className="relative w-full mt-[120px] mb-[100px]">
-        <section className={`step-1 transition-all duration-500 ease-in-out ${activeStep === 1 ? 'opacity-100 translate-y-0 visible relative z-10' : 'opacity-0 translate-y-8 invisible absolute top-0 left-0 w-full -z-10'}`}>
+      <div className="relative w-full mt-[80px] md:mt-[120px] mb-[60px] sm:mb-[100px]">
+        <section className={`step-1 transition-all duration-500 ease-in-out ${activeStep === 1 ? 'opacity-100 translate-y-0 block' : 'opacity-0 translate-y-8 hidden'}`}>
           <div className="auto_container">
             <div className="wrap">
               <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full uppercase">
@@ -112,36 +112,36 @@ export default function Registration() {
               </p>
 
 
-              <form action="#" className="form grid grid-cols-12 gap-8 mt-[56px]">
+              <form action="#" className="form grid grid-cols-12 gap-6 md:gap-8 mt-10 md:mt-[56px]">
                 <div className="grid grid-cols-12 col-span-12">
-                  <div className="block col-span-6">
-                    <h4 className="text-xl font-medium leading-tight mb-5">
+                  <div className="block col-span-12 md:col-span-6">
+                    <h4 className="text-[20x] md:text-xl font-medium leading-tight mb-5">
                       1. Information about child / Информация о ребёнке
                     </h4>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="name">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="name">
                         Имя
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="name" placeholder="Имя" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="surename">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="surename">
                         Last / Фамилия
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="surename" placeholder="Фамилия" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="brithDate">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="brithDate">
                         DOB / Дата рождения
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="brithDate" placeholder="XX.XX.XXXX" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="email">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="email">
                         Email
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="email" id="email" placeholder="Email" />
@@ -150,65 +150,65 @@ export default function Registration() {
                 </div>
 
                 <div className="grid grid-cols-12 col-span-12 gap-5">
-                  <h4 className="text-xl font-medium leading-tight mb-5 col-span-12">
+                  <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-5 col-span-12">
                     2. Parents information / Контактная информация родителей
                   </h4>
 
-                  <div className="block col-span-6">
+                  <div className="block col-span-12 md:col-span-6">
                     <h6 className="text-base font-medium leading-tight mb-4">
                       Mother / Мать:
                     </h6>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="M-name">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="M-name">
                         Имя
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="M-name" placeholder="Имя" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="M-surename">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="M-surename">
                         Last / Фамилия
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="M-surename" placeholder="Фамилия" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="M-cellPhone">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="M-cellPhone">
                         Cell / Телефон
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="M-cellPhone" placeholder="+" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="address">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="address">
                         Address / Адрес проживания
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="address" id="email" placeholder="Адрес проживания" />
                     </div>
                   </div>
 
-                  <div className="block col-span-6">
+                  <div className="block col-span-12 md:col-span-6">
                     <h6 className="text-base font-medium leading-tight mb-4">
                       Father / Отец:
                     </h6>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="F-name">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="F-name">
                         Имя
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="F-name" placeholder="Имя" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="F-surename">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="F-surename">
                         Last / Фамилия
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="F-surename" placeholder="Фамилия" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="F-cellPhone">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="F-cellPhone">
                         Cell / Телефон
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="F-cellPhone" placeholder="+" />
@@ -217,20 +217,20 @@ export default function Registration() {
                 </div>
 
                 <div className="grid grid-cols-12 col-span-12">
-                  <div className="block col-span-6">
-                    <h4 className="text-xl font-medium leading-tight mb-5 col-span-12">
+                  <div className="block col-span-12 md:col-span-6">
+                    <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-5 col-span-12">
                       3. Medical info / Медицинская информация
                     </h4>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="physicianName">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="physicianName">
                         Primary Physician’s name / Имя лечащего врача
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="physicianName" placeholder="Имя лечащего врача" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="clinicPhone">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="clinicPhone">
                         Primary clinic phone / Телефон клиники
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="clinicPhone" placeholder="+" />
@@ -239,27 +239,27 @@ export default function Registration() {
                 </div>
 
                 <div className="grid grid-cols-12 col-span-12">
-                  <div className="block col-span-6">
-                    <h4 className="text-xl font-medium leading-tight mb-5 col-span-12">
+                  <div className="block col-span-12 md:col-span-6">
+                    <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-5 col-span-12">
                       4. Health insurance / Медицинская страховка
                     </h4>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="companyName">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="companyName">
                         Company / Страховая компания
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="companyName" placeholder="Имя лечащего врача" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="police">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="police">
                         Policy #
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="police" placeholder="+" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="group">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="group">
                         Group #
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="group" placeholder="+" />
@@ -268,27 +268,27 @@ export default function Registration() {
                 </div>
 
                 <div className="grid grid-cols-12 col-span-12">
-                  <div className="block col-span-6">
-                    <h4 className="text-xl font-medium leading-tight mb-5 col-span-12">
+                  <div className="block col-span-12 md:col-span-6">
+                    <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-5 col-span-12">
                       5. Дополнительно
                     </h4>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="emergency">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="emergency">
                         Контакт на случай ЧС
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="emergency" placeholder="+" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="alergic">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="alergic">
                         Аллергии
                       </label>
                       <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="alergic" placeholder="" />
                     </div>
 
                     <div className="block mb-3">
-                      <label className="text-base font-normal leading-tight mb-1 block" htmlFor="importantMessage">
+                      <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="importantMessage">
                         Любая важная информация
                       </label>
                       <textarea className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full resize-none h-[140px]" name="importantMessage" id="importantMessage"></textarea>
@@ -297,21 +297,21 @@ export default function Registration() {
                 </div>
 
                 <div className="grid grid-cols-12 col-span-12">
-                  <div className="block col-span-6">
-                    <h4 className="text-xl font-medium leading-tight mb-5 col-span-12">
+                  <div className="block col-span-12 md:col-span-6">
+                    <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-5 col-span-12">
                       6. Был ли ребёнок раньше в лагерях?
                     </h4>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="lagers" id="lagers-yes" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="lagers-yes">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="lagers-yes">
                         Да, уже ездил
                       </label>
                     </div>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="lagers" id="lagers-no" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="lagers-no">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="lagers-no">
                         Нет, будет впервые
                       </label>
                     </div>
@@ -319,35 +319,35 @@ export default function Registration() {
                 </div>
 
                 <div className="grid grid-cols-12 col-span-12">
-                  <div className="block col-span-6">
-                    <h4 className="text-xl font-medium leading-tight mb-5 col-span-12">
+                  <div className="block col-span-12 md:col-span-6">
+                    <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-5 col-span-12">
                       7. Что для вас важнее всего?
                     </h4>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="important" id="control" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="control">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="control">
                         Безопасность и контроль
                       </label>
                     </div>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="important" id="friends" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="friends">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="friends">
                         Новые друзья и общение
                       </label>
                     </div>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="important" id="rest" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="rest">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="rest">
                         Активный отдых
                       </label>
                     </div>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="important" id="learn" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="learn">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="learn">
                         Развитие и программа
                       </label>
                     </div>
@@ -355,48 +355,48 @@ export default function Registration() {
                 </div>
 
                 <div className="grid grid-cols-12 col-span-12">
-                  <div className="block col-span-6">
-                    <h4 className="text-xl font-medium leading-tight mb-5 col-span-12">
+                  <div className="block col-span-12 md:col-span-6">
+                    <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-5 col-span-12">
                       8. Насколько ребёнок зависит от телефона?
                     </h4>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="addictPhone" id="always" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="always">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="always">
                         Почти постоянно в телефоне
                       </label>
                     </div>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="addictPhone" id="sometimes" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="sometimes">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="sometimes">
                         Иногда пользуется
                       </label>
                     </div>
 
                     <div className="block mb-3 check">
                       <input type="radio" name="addictPhone" id="noUse" />
-                      <label className="text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="noUse">
+                      <label className="text-sm md:text-base font-normal leading-tight py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" htmlFor="noUse">
                         Спокойно обходится
                       </label>
                     </div>
                   </div>
                 </div>
 
-                <div className="block mt-2 col-span-6">
-                  <button type="submit" className="bg-[#FF6A00] text-lg font-semibold leading-tight text-center text-white py-[18px] px-3 rounded-lg cursor-pointer w-full">
+                <div className="block mt-2 col-span-12 md:col-span-6">
+                  <button type="submit" className="bg-[#FF6A00] text-sm md:text-lg font-semibold leading-tight text-center text-white py-[18px] px-3 rounded-lg cursor-pointer w-full">
                     Задать вопрос
                   </button>
 
-                  <p className="text-sm font-normal leading-tight mt-2 text-center">
+                  <p className="text-sm font-normal leading-tight mt-2 w-full max-w-[235px] md:max-w-full mx-auto text-center">
                     Проверим данные и свяжемся с вами для подтверждения участия
                   </p>
 
-                  <div className="flex items-start mt-10">
-                    <p className="text-[#FF6A00] text-lg font-normal leading-tight mr-4">
+                  <div className="flex flex-col sm:flex-row items-start mt-10">
+                    <p className="text-[#FF6A00] text-lg font-normal leading-tight mb-2 sm:mb-0 sm:mr-4">
                       ВАЖНО:
                     </p>
-                    <p className="text-base font-normal leading-tight">
+                    <p className="text-sm md:text-base font-normal leading-tight">
                       Скачайте и установите Viber. После регистрации вы получите приглашение в информационную группу лагеря
                     </p>
                   </div>
@@ -407,17 +407,17 @@ export default function Registration() {
           </div>
         </section>
 
-        <section className={`step-2 transition-all duration-500 ease-in-out ${activeStep === 2 ? 'opacity-100 translate-y-0 visible relative z-10' : 'opacity-0 translate-y-8 invisible absolute top-0 left-0 w-full -z-10'}`}>
+        <section className={`step-2 transition-all duration-500 ease-in-out ${activeStep === 2 ? 'opacity-100 translate-y-0 block' : 'opacity-0 translate-y-8 hidden'}`}>
           <div className="auto_container z-10">
             <div className="wrap">
               <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[650px] mx-auto uppercase text-center">
                 PLEASE READ CAREFULLY. <span className="text-[#FF6A00]"> THIS DOCUMENT CONTAINS A RELEASE AND WAIVER OF LIABILITY </span>
               </h1>
-              <p className="text-sm md:text-base font-normal leading-6 mt-4 w-full max-w-[690px] mx-auto text-center">
+              <p className="text-sm md:text-base font-normal leading-6 mt-3 md:mt-4 w-full max-w-[690px] mx-auto text-center">
                 Пожалуйста, внимательно прочитайте документ ниже. Для завершения регистрации необходимо подтвердить согласие родителя и ребёнка
               </p>
 
-              <div className="block w-full mt-10">
+              <div className="block w-full mt-6 md:mt-10">
                 <Image
                   width={1160}
                   height={600}
@@ -431,12 +431,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       AGE GUIDELINES:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     The Oasis Camp is for children ages 9 to 12 years old. The participants will be divided into small groups dependent on age and gender.
                   </p>
                 </div>
@@ -444,12 +444,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       MEDICAL TREATMENT:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     I hereby give permission to the physicians and nurses selected by Oasis Camp Directors to assess and give medical treatment, including prescriptions, when necessary to my son/daughter. If
                     my son or daughter is arriving to camp with prescription medicine that I provide to camp staff, I authorize a designated camp staff person to dispense this prescribed medicine. In the
                     event that a guest requires special medication, transportation, X-ray or treatment beyond that which is possible at the resort, the parents will be charged with the additional expense. In case of surgical emergency, I hereby give permission to the physician selected by the Director of Oasis Camp to hospitalize, secure proper treatment for and to order injection, anesthesia or surgery for my child as named above and will be responsible for any additional expense that may result from such services.
@@ -459,12 +459,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       ALLERGIES:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     While I understand that Oasis Camp does its best to protect against exposure to nut products where there are allergies of which I have given written notice, I recognize that Oasis Camp does not accept responsibility or liability and I hereby release Oasis Camp for any illness or injury which may occur as a result of exposure by my child to any such food or other item to which my child has an allergy.
                   </p>
                 </div>
@@ -472,12 +472,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       CONSENT FOR TRANSPORTATION:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     I give permission for my child to be transported in a motor vehicle driven by designated Oasis Camp Staff to an off-site location to receive medical treatment in the event of an
                     emergency or if medical treatment is required. I recognize that by participating in this activity, as with any activity involving motor vehicle transportation, my child may risk personal injury or permanent loss. I hereby attest and verify that I have been advised of the potential risks, that I have full knowledge of the risks involved in this activity, and that I assume any expenses that may be incurred in the event of an accident, illness, or other incapacity, regardless of whether I have authorized such expenses.
                   </p>
@@ -486,12 +486,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       DRESS CODE:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     Children should dress appropriately for the activities scheduled. Oasis Camp recommends shorts and a light weight shirt or top, and some type of athletic shoe or sneaker in order to participate in recreational or athletic activities. Sandals, flip-flops, rubber "crocs"- style shoes, and other open-toed shoes are not recommended as acceptable attire for active recreation activities. Shirts should have a minimum of 1" wide shoulder straps. Clothing that displays drugs, alcohol, tobacco, offensive language, excessive bagginess, or is excessively revealing will not be permitted.
                   </p>
                 </div>
@@ -499,12 +499,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       PERSONAL BELONGINGS:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     Please put the child's name on all articles of clothing, bags, etc. Children should not bring toys, fireworks, jewelry, money, or any possession of value with them. Children will be responsible for their belongings. Oasis Camp is not responsible for any lost, stolen or damaged articles. No weapons of any kind, or items that may be used or mistaken as weapons. No cell phones, radios, MP3 players, iPods, tablets, laptops or other electronic equipment.
                   </p>
                 </div>
@@ -512,12 +512,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       SUNSCREEN/INSECT REPELLENT:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     Please provide sunscreen and insect repellent. Spray or mist sunscreen and/or insect repellent are recommended. Sunscreen and/or insect repellent must be labeled with child's name. Children may not share these items with others.
                   </p>
                 </div>
@@ -525,12 +525,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       CAMP RULES:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     No roughhousing or physical force; all campers must keep their hands to themselves and are not allowed to kick, hit, or hurt each other in any way. Campers will respect other people's property and camp property. No swearing or foul language; no name calling. Campers will clean up after themselves and be responsible for their personal belongings. No camper may leave their assigned group at any time without permission from their counselor.
                   </p>
                 </div>
@@ -538,12 +538,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       DISMISSAL AND BEHAVIOR:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     The Director reserves the right to dismiss a camper without a refund who, in his opinion, is a hazard to the safety or rights of others or who appears to him to have rejected the reasonable controls of the resort. I certify that I have no knowledge of any physical or mental impairment that would be affected by the named guest's participation in the Oasis Camp Program. I also give permission to the Directors of Oasis Camp to search my child's belongings for items prohibited by camp, if suspected. I agree to reimburse Oasis Camp for any intentional damage or defacement of camp property caused by my child.
                   </p>
                 </div>
@@ -551,12 +551,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       DISMISSAL AND BEHAVIOR:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     The Director reserves the right to dismiss a camper without a refund who, in his opinion, is a hazard to the safety or rights of others or who appears to him to have rejected the reasonable controls of the resort. I certify that I have no knowledge of any physical or mental impairment that would be affected by the named guest's participation in the Oasis Camp Program. I also give permission to the Directors of Oasis Camp to search my child's belongings for items prohibited by camp, if suspected. I agree to reimburse Oasis Camp for any intentional damage or defacement of camp property caused by my child.
                   </p>
 
@@ -564,7 +564,7 @@ export default function Registration() {
                     <p className="text-[#FF6A00] text-xl font-medium leading-tight mr-4">
                       NOTE:
                     </p>
-                    <p className="text-base font-normal leading-tight">
+                    <p className="text-sm md:text-base font-normal leading-tight">
                       Immediate dismissal from the camp can occur at any time given severe circumstances. Refunds due to a discipline dismissal will not be granted.
                     </p>
                   </div>
@@ -573,12 +573,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       NUTRITION/SNACKS:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     Children not allowed to bring a snack. Provide non-glass container for drink with label and the child's name. Please do not send gum or candy.
                   </p>
                 </div>
@@ -586,12 +586,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       SWIMMING:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     Children will need to bring a swimsuit or wear a swimsuit under their clothing for swim schedule time. Provide towels. Lycra swim shirts or rash guards are permissible. Cotton t-shirts, denim, or cotton shorts may not be worn in the water.
                   </p>
                 </div>
@@ -599,12 +599,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       MEDIA AND PHOTOGRAPHY RELEASE:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     I/We, named above grant permission to Oasis Camp, it's leadership team and volunteers the irrevocable and unrestricted right to produce photographs and video taken of my child, while at Oasis Camp Summer Camp for any lawful purpose including publication, promotion, illustration, advertising, trade, or historical archive in any manner or in any medium. I hereby release Oasis Camp and its legal representatives from liability for any violation or claims relating to said images or video. I waive my right, my child's rights, and my family's rights to any and all compensation stemming from the use of these materials.
                   </p>
                 </div>
@@ -612,12 +612,12 @@ export default function Registration() {
                 <div className="block ">
                   <div className="flex items-center gap-4 w-full mb-2">
                     <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-[36px] font-semibold leading-tight">
+                    <h6 className="text-2xl md:text-[36px] font-semibold leading-tight">
                       LIABILITY:
-                    </p>
+                    </h6>
                   </div>
 
-                  <p className="text-base font-normal leading-tight">
+                  <p className="text-sm md:text-base font-normal leading-tight">
                     While every precaution is taken for the safety and good health of our guests, some sports and activities carry with them the inherent risk of personal injury beyond the risks associated with
                     many of the recreational activities at Oasis Camp. I understand and accept these risks and agree that by allowing my child to participate in those activities, he/she may be taking part in a recreational activity that presents the potential for personal injury. I understand that Oasis Camp assumes no responsibility for injuries or illnesses that participant may sustain, a.) as a result of participant's physical condition, b.) resulting from participant's participation in the activity, c.) as a result of another participant's or third person's actions, or d.) as a result of participant's use of Oasis Camp's facilities, surroundings, and/or equipment in connection with this activity. The participant releases and agrees to hold harmless, defend and indemnify Oasis Camp and its directors, staff volunteers,
                     and supporters (the "Releasees") from and against any and all claims for personal injury (including loss of life) and all other losses or damages that the participant may suffer as a result of his or her participation and/or enrollment in Oasis Camp's activities, notwithstanding that any such loss, injury or damage may have arisen by reason of negligence of the ["Releasees"].
@@ -626,12 +626,12 @@ export default function Registration() {
               </div>
 
               <form action="#" className="grid grid-cols-12 gap-5 mt-[60px]">
-                <div className="block col-span-6">
-                  <h6 className="mb-10 text-base font-normal leading-tight">
+                <div className="block col-span-12 md:col-span-6">
+                  <h6 className="mb-5 md:mb-10 text-sm md:text-base font-normal leading-tight">
                     This release constitutes a waiver of legal rights and by signing below, you are also indicating that you have read carefully and understand the contents of this waiver and release.
                   </h6>
 
-                  <h4 className="text-xl font-medium leading-tight mb-[6px]">
+                  <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-[6px]">
                     PARENT/GUARDIAN
                   </h4>
                   <p className="text-xs font-normal leading-tight text-[#242424]/80 mb-5">
@@ -639,33 +639,33 @@ export default function Registration() {
                   </p>
 
                   <div className="block mb-[14px]">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="parentName">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="parentName">
                       Full name
                     </label>
                     <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="parentName" placeholder="" />
                   </div>
 
                   <div className="block mb-[14px]">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="parentDate">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="parentDate">
                       Date
                     </label>
                     <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="parentDate" placeholder="" />
                   </div>
 
                   <div className="block">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="parentSignature">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="parentSignature">
                       Signature
                     </label>
                     <textarea className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full resize-none h-[120px]" name="parentSignature" id="parentSignature"></textarea>
                   </div>
                 </div>
 
-                <div className="block col-span-6">
-                  <h6 className="mb-10 text-base font-normal leading-tight">
+                <div className="block col-span-12 md:col-span-6">
+                  <h6 className="mb-5 md:mb-10 text-sm md:text-base font-normal leading-tight">
                     I have read the camp rules, understand them, and agree to follow them. I understand that if I break these rules, I will be asked to leave, and my parent/guardian will pick me up from camp.
                   </h6>
 
-                  <h4 className="text-xl font-medium leading-tight mb-[6px]">
+                  <h4 className="text-[20px] md:text-xl font-medium leading-tight mb-[6px]">
                     CAMPER
                   </h4>
                   <p className="text-xs font-normal leading-tight text-[#242424]/80 mb-5">
@@ -673,21 +673,21 @@ export default function Registration() {
                   </p>
 
                   <div className="block mb-[14px]">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="camperName">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="camperName">
                       Full name
                     </label>
                     <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="camperName" placeholder="" />
                   </div>
 
                   <div className="block mb-[14px]">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="camperDate">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="camperDate">
                       Date
                     </label>
                     <input className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full" type="text" id="camperDate" placeholder="" />
                   </div>
 
                   <div className="block">
-                    <label className="text-base font-normal leading-tight mb-1 block" htmlFor="camperSignature">
+                    <label className="text-sm md:text-base font-normal leading-tight mb-1 block" htmlFor="camperSignature">
                       Signature
                     </label>
                     <textarea className="text-xs leading-tight font-normal placeholder:text-[#9CB7BB] py-5 px-6 bg-white border border-solid border-[#9CB7BB] rounded-[6px] w-full resize-none h-[120px]" name="camperSignature" id="camperSignature"></textarea>
@@ -695,27 +695,27 @@ export default function Registration() {
                 </div>
 
                 <div className="col-span-12 mt-3">
-                  <div className="flex items-center mb-[22px]">
-                    <p className="text-[#FF6A00] text-xl font-medium leading-tight mr-4">
+                  <div className="flex flex-col sm:flex-row items-start mb-[22px]">
+                    <p className="text-[#FF6A00] text-lg md:text-xl font-medium leading-tight mb-2 sm:mb-0 sm:mr-4">
                       ВАЖНО:
                     </p>
-                    <p className="text-base font-normal leading-tight">
+                    <p className="text-sm md:text-base font-normal leading-tight">
                       Скачайте и установите Viber. После регистрации вы получите приглашение в информационную группу лагеря
                     </p>
                   </div>
 
                   <div className="block mb-[22px] ruleCheck">
                     <input type="checkbox" id="campRule" />
-                    <label htmlFor="campRule" className="cursor-pointer block text-base font-normal leading-tight">
+                    <label htmlFor="campRule" className="cursor-pointer block text-sm md:text-base font-normal leading-tight">
                       Я ознакомился с условиями и согласен с правилами лагеря
                     </label>
                   </div>
 
-                  <button type="submit" className="bg-[#FF6A00] text-lg font-semibold leading-tight text-center text-white py-[18px] px-3 mb-3 rounded-lg cursor-pointer w-full">
+                  <button type="submit" className="bg-[#FF6A00] text-sm md:text-lg font-semibold leading-tight text-center text-white py-[18px] px-3 mb-3 rounded-lg cursor-pointer w-full">
                     Зарегистрироваться и Оплатить
                   </button>
 
-                  <p className="text-sm font-normal leading-tight text-center">
+                  <p className="text-xs md:text-sm font-normal leading-tight text-center">
                     После подписания вы перейдёте к оплате или вводу регистрационного кода
                   </p>
                 </div>
@@ -733,7 +733,7 @@ export default function Registration() {
           </span>
         </section>
 
-        <section className={`step-3 transition-all duration-500 ease-in-out ${activeStep === 3 ? 'opacity-100 translate-y-0 visible relative z-10' : 'opacity-0 translate-y-8 invisible absolute top-0 left-0 w-full -z-10'}`}>
+        <section className={`step-3 transition-all duration-500 ease-in-out ${activeStep === 3 ? 'opacity-100 translate-y-0 block' : 'opacity-0 translate-y-8 hidden'}`}>
           <div className="auto_container">
             <div className="wrap">
               {/* <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full uppercase">

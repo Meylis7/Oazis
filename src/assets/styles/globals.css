@@ -167,6 +167,14 @@
   }
 }
 
+.oazisImg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 160px;
+  width: 160px;
+}
+
 @layer components {
   .auto_container {
     position: relative;
@@ -188,6 +196,12 @@
     display: none;
   }
 
+  @media (min-width: 460px) {
+    .oazisImg {
+      left: 300px !important;
+    }
+  }
+
   @media (min-width: 1024px) {
     .hero_slider .swiper-button-next {
       right: -50px !important;
@@ -195,6 +209,12 @@
 
     .hero_slider .swiper-button-prev {
       left: -50px !important;
+    }
+
+    .oazisImg {
+      left: unset !important;
+      right: 0;
+      top: -130px;
     }
   }
 

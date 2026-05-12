@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/assets/styles/globals.css";
 import Header from "@/components/Header";
+import { siteMetadata } from "@/data/common";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Oazis Summer Camp",
-  description: "Оазис - детский лагерь",
+  title: siteMetadata.title,
+  description: siteMetadata.description,
   icons: {
     icon: [
       { url: '/favicon-96x96.png?v=3', sizes: '96x96', type: 'image/png' },

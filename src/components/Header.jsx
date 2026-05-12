@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { headerData } from '@/data/header';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,17 +14,19 @@ export default function Header() {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  const { logo, navLinks, bookingButton } = headerData;
+
   return (
     <header className="header mt-5!">
       <div className="auto_container">
         <div className="wrap relative flex items-center justify-between pb-5 gap-4 border-solid border-0 border-b border-[#9DB7BC]/40">
-          <Link href="/" className="h-[30px] block relative z-50">
+          <Link href="/" className="h-7 md:h-[30px] block relative z-50">
             <Image
-              width={260}
-              height={30}
-              src="/images/logo.png"
+              width={logo.width}
+              height={logo.height}
+              src={logo.src}
               className='w-full h-full object-contain'
-              alt="logo"
+              alt={logo.alt}
             />
           </Link>
 
@@ -34,25 +37,24 @@ export default function Header() {
             ${isMenuOpen ? "opacity-100 visible scale-y-100 translate-y-4" : "opacity-0 invisible scale-y-95 translate-y-0"}
           `}>
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-[17px]">
-              <Link href="/schedule" className="text-base md:text-sm font-medium block w-full md:w-auto text-center hover:text-[#FF6A00] transition-colors">
-                Расписание
-              </Link>
-              <Link href="/contacts" className="text-base md:text-sm font-medium block w-full md:w-auto text-center hover:text-[#FF6A00] transition-colors">
-                Контакты
-              </Link>
-              <Link href="/registration" className="text-base md:text-sm font-medium block w-full md:w-auto text-center hover:text-[#FF6A00] transition-colors">
-                Регистрация
-              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-base md:text-sm font-medium block w-full md:w-auto text-center hover:text-[#FF6A00] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
               
-              {/* Mobile "Забронировать место" button inside nav */}
-              <Link href="#" className="md:hidden mt-2 text-sm font-medium text-center block border-solid border border-[#9DB7BC] py-3 w-[220px] rounded-lg">
-                Забронировать место
+              <Link href={bookingButton.href} className="md:hidden mt-2 text-sm font-medium text-center block border-solid border border-[#9DB7BC] py-3 w-[220px] rounded-lg">
+                {bookingButton.text}
               </Link>
             </div>
           </nav>
 
-          <Link href="#" className="hidden md:block text-sm font-medium text-center  border-solid border border-[#9DB7BC] py-3 w-[220px] rounded-lg relative z-50 hover:bg-[#9DB7BC] hover:text-white transition-colors">
-            Забронировать место
+          <Link href={bookingButton.href} className="hidden md:block text-sm font-medium text-center  border-solid border border-[#9DB7BC] py-3 w-[220px] rounded-lg relative z-50 hover:bg-[#9DB7BC] hover:text-white transition-colors">
+            {bookingButton.text}
           </Link>
 
           <button 

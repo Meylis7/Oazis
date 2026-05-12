@@ -2,10 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroSlider from "@/components/HeroSlider";
 import Countdown from "@/components/Countdown";
+import {
+  heroSection,
+  countdownSection,
+  featuresSection,
+  featureSectionImages,
+  youtubeEmbed,
+  safetySection,
+  medicalSafetySection,
+  scheduleSection,
+  packingListSection,
+  accommodationSection,
+  homeLocationSection,
+  supportSection,
+} from "@/data/home";
 
 export default function Home() {
-  const campStartDate = "2026-08-30T00:00:00"; // You can change this date
-
   return (
     <main className="block relative">
       <section className="hero mt-10 md:mt-[60px]">
@@ -13,21 +25,28 @@ export default function Home() {
           <div className="wrap">
             <h1 className="text-[32px] md:text-[46px] font-semibold leading-tight w-full max-w-[915px] uppercase">
               <span className="text-[#FF6A00]">
-                Летний лагерь для детей 9-12 лет
+                {heroSection.titleHighlight}
               </span> <br />
-              с проживанием на природе и насыщенной программой
+              {heroSection.subtitle}
             </h1>
             <p className="text-sm md:text-base font-normal leading-6 w-full max-w-[600px] mt-4">
-              <span className="font-semibold">7 дней без телефонов</span> — с играми, друзьями и живым общением. Программа на русском языке + адаптация для англоговорящих детей
+              <span className="font-semibold">{heroSection.descriptionBold}</span> {heroSection.descriptionExtra}
             </p>
 
             <div className="hidden gap-5 mt-5 lg:flex">
-              <Link href="#" className="text-sm md:text-[18px] font-semibold text-white bg-[#FF6A00] py-[18px] px-[26px] rounded-lg">
-                Забронировать место на поток 2026
-              </Link>
-              <Link href="#" className="text-sm md:text-[18px] font-semibold  text-main-color bg-[#9DB7BC] py-[18px] px-[26px] rounded-lg">
-                Познакомиться с распорядком дня и условиями лагеря
-              </Link>
+              {heroSection.buttons.map((button, index) => (
+                <Link
+                  key={index}
+                  href={button.href}
+                  className={`text-sm md:text-[18px] font-semibold py-[18px] px-[26px] rounded-lg ${
+                    button.variant === 'primary'
+                      ? 'text-white bg-[#FF6A00]'
+                      : 'text-main-color bg-[#9DB7BC]'
+                  }`}
+                >
+                  {button.text}
+                </Link>
+              ))}
             </div>
 
             <HeroSlider />
@@ -42,8 +61,8 @@ export default function Home() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/KvoGE-adqvM"
-                title="YouTube video player"
+                src={youtubeEmbed.src}
+                title={youtubeEmbed.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -61,9 +80,9 @@ export default function Home() {
             <div className="flex flex-col items-center lg:items-start w-full h-[400px] md:h-[420px] relative bg-[#FAF2ED] rounded-xl overflow-hidden">
               <div className="info flex justify-center items-center flex-col lg:pl-10 my-auto text-center w-full max-w-[500px]">
                 <h4 className="text-lg sm:text-[26px] md:text-[36px] font-semibold leading-tight">
-                  До начала смены осталось
+                  {countdownSection.title}
                 </h4>
-                <Countdown targetDate={campStartDate} />
+                <Countdown targetDate={countdownSection.targetDate} />
               </div>
 
               <div className="block absolute right-0 top-0 pointer-events-none">
@@ -81,92 +100,82 @@ export default function Home() {
           <div className="wrap">
             <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[870px] uppercase">
               <span className="text-[#FF6A00]">
-                За 7 дней ребёнок проживёт опыт,
+                {featuresSection.titleHighlight}
               </span> <br />
-              который не даст ни школа, ни кружки
+              {featuresSection.subtitle}
             </h1>
             <p className="text-sm md:text-base font-normal leading-6 mt-4">
-              Каждый день — это сочетание активности, общения и развития в безопасной среде
+              {featuresSection.description}
             </p>
 
             <div className="grid grid-cols-12 gap-5 mt-5">
-              <div className="block col-span-12 lg:col-span-7 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
-                <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
-                  Живое общение без телефонов
-                </h4>
-                <p className="text-sm md:text-base font-normal leading-tight">
-                  Дети полностью погружаются в реальное общение — без телефонов, планшетов и соцсетей
-                </p>
-              </div>
+              {featuresSection.items.slice(0, 2).map((feature, index) => (
+                <div key={index} className="block col-span-12 lg:col-span-7 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
+                  <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
+                    {feature.title}
+                  </h4>
+                  <p className="text-sm md:text-base font-normal leading-tight">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
 
               <div className="block col-span-12 lg:col-span-5 sm:h-[320px] order-2 lg:order-0 row-span-1 lg:row-span-2">
                 <Image
-                  width={470}
-                  height={30}
-                  src="/images/camp-1.png"
+                  width={featureSectionImages[0].width}
+                  height={featureSectionImages[0].height}
+                  src={featureSectionImages[0].src}
                   className='w-full h-full object-contain'
-                  alt="logo"
+                  alt={featureSectionImages[0].alt}
                 />
               </div>
 
-              <div className="block col-span-12 lg:col-span-7 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
-                <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
-                  Новые друзья за 7 дней
-                </h4>
-                <p className="text-sm md:text-base font-normal leading-tight">
-                  Маленькие группы до 10 человек → ребёнок не теряется и быстро находит друзей
-                </p>
-              </div>
+              {featuresSection.additionalCards.slice(0, 2).map((card, index) => (
+                <div key={index} className="block col-span-12 lg:col-span-7 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
+                  <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
+                    {card.title}
+                  </h4>
+                  <p className="text-sm md:text-base font-normal leading-tight">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
             </div>
 
             <div className="grid grid-cols-12 gap-5 mt-5">
               <div className="block col-span-12 lg:col-span-5 sm:h-[320px] order-2 lg:order-0 row-span-1 lg:row-span-2">
                 <Image
-                  width={470}
-                  height={30}
-                  src="/images/camp-2.png"
+                  width={featureSectionImages[1].width}
+                  height={featureSectionImages[1].height}
+                  src={featureSectionImages[1].src}
                   className='w-full h-full object-contain'
-                  alt="logo"
+                  alt={featureSectionImages[1].alt}
                 />
               </div>
 
-              <div className="block col-span-12 lg:col-span-7 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
-                <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
-                  Контроль и дисциплина
-                </h4>
-                <p className="text-sm md:text-base font-normal leading-tight">
-                  Дети не могут покидать группу без разрешения, соблюдают правила лагеря
-                </p>
-              </div>
-
-              <div className="block col-span-12 lg:col-span-7 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
-                <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
-                  Активная программа каждый день
-                </h4>
-                <p className="text-sm md:text-base font-normal leading-tight">
-                  Спорт, игры, квесты, купание, вечерние встречи — ребенок всегда занят
-                </p>
-              </div>
+              {featuresSection.additionalCards.slice(2, 4).map((card, index) => (
+                <div key={index} className="block col-span-12 lg:col-span-7 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
+                  <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
+                    {card.title}
+                  </h4>
+                  <p className="text-sm md:text-base font-normal leading-tight">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
             </div>
 
             <div className="grid grid-cols-12 gap-5 mt-5">
-              <div className="block col-span-12 lg:col-span-4 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
-                <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
-                  Безопасная среда
-                </h4>
-                <p className="text-sm md:text-base font-normal leading-tight">
-                  Вожатые находятся с детьми постоянно и контролируют весь день
-                </p>
-              </div>
-
-              <div className="block col-span-12 lg:col-span-8 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
-                <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
-                  Развитие и ценности
-                </h4>
-                <p className="text-sm md:text-base font-normal leading-tight">
-                  На потоке мы проводим ежедневно библейские программы, на которых мы говорим об уважении старших, уважении друг друга, о послушании родителям, о важности обучения и развития, о безопасности в этом опасном мире, о выборе и последствиях
-                </p>
-              </div>
+              {featuresSection.additionalCards.slice(4, 5).map((card, index) => (
+                <div key={index} className="block col-span-12 lg:col-span-4 py-[36px] px-[26px] bg-[#FAF2ED] rounded-lg">
+                  <h4 className="text-lg md:text-2xl font-semibold leading-tight mb-3">
+                    {card.title}
+                  </h4>
+                  <p className="text-sm md:text-base font-normal leading-tight">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -177,38 +186,20 @@ export default function Home() {
           <div className="wrap">
             <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[950px] uppercase">
               <span className="text-[#FF6A00]">
-                Ребёнок находится под присмотром 24/7 —
+                {safetySection.title}
               </span>
-              от подъёма до отбоя
+              {safetySection.subtitle}
             </h1>
 
             <div className="py-[42px] md:py-[70px] md:pr-[100px] relative mt-5 px-[35px] w-full md:min-h-[680px] bg-[url('/images/camp-1.png')] bg-cover bg-center bg-no-repeat rounded-2xl">
               <div className="info mx-auto md:mr-0 md:ml-auto w-fit flex flex-col gap-[10px]">
-                <div className="block w-full max-w-[470px] bg-white/95 p-[26px] rounded">
-                  <h6 className="text-sm md:text-xl font-normal w-full md:max-w-[340px]">
-                    Вожатые закреплены за группами и находятся с детьми постоянно
-                  </h6>
-                </div>
-                <div className="block w-full max-w-[470px] bg-white/95 p-[26px] rounded">
-                  <h6 className="text-sm md:text-xl font-normal w-full md:max-w-[310px]">
-                    Дети не могут покидать группу без разрешения
-                  </h6>
-                </div>
-                <div className="block w-full max-w-[470px] bg-white/95 p-[26px] rounded">
-                  <h6 className="text-sm md:text-xl font-normal w-full md:max-w-[330px]">
-                    Группы до 10 человек — внимание к каждому
-                  </h6>
-                </div>
-                <div className="block w-full max-w-[470px] bg-white/95 p-[26px] rounded">
-                  <h6 className="text-sm md:text-xl font-normal w-full md:max-w-[340px]">
-                    Контроль поведения и соблюдение правил лагеря
-                  </h6>
-                </div>
-                <div className="block w-full max-w-[470px] bg-white/95 p-[26px] rounded">
-                  <h6 className="text-sm md:text-xl font-normal w-full md:max-w-[380px]">
-                    Возможность связи с родителями через директора и вожатого
-                  </h6>
-                </div>
+                {safetySection.items.map((item, index) => (
+                  <div key={index} className="block w-full max-w-[470px] bg-white/95 p-[26px] rounded">
+                    <h6 className="text-sm md:text-xl font-normal w-full md:max-w-[340px]">
+                      {item.text}
+                    </h6>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -220,352 +211,91 @@ export default function Home() {
         <div className="auto_container">
           <div className="wrap">
             <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[950px] uppercase">
-              Медицинская безопасность
+              {medicalSafetySection.title}
             </h1>
 
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 md:gap-3 mt-3 md:mt-9 w-full">
-              <div className="flex gap-3 md:w-[320px]">
-                <span className="w-5 md:w-8 block">
-                  <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
+              {medicalSafetySection.items.map((item, index) => (
+                <div key={index} className="flex gap-3 md:w-[320px]">
+                  <span className="w-5 md:w-8 block">
+                    <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
 
-                <p className="text-base font-normal">
-                  При необходимости ребёнку оказывается медицинская помощь
-                </p>
-              </div>
-
-              <div className="flex gap-3 md:w-[217px]">
-                <span className="w-5 md:w-8 block">
-                  <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-
-                <p className="text-base font-normal">
-                  Медик контролируют приём лекарств
-                </p>
-              </div>
-
-              <div className="flex gap-3 md:w-[306px]">
-                <span className="w-5 md:w-8 block">
-                  <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-
-                <p className="text-base font-normal">
-                  В экстренных случаях обеспечивается госпитализация
-                </p>
-              </div>
+                  <p className="text-base font-normal">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mt-[80px] md:mt-[120px]">
+      <section className="mt-[80px] md:mt-[120px]" id='schedule'>
         <div className="auto_container">
           <div className="wrap">
             <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[950px] uppercase">
               <span className="text-[#FF6A00]">
-                Ребёнок находится под присмотром 24/7 —
-              </span> от подъёма до отбоя
+                {scheduleSection.title}
+              </span> {scheduleSection.subtitle}
             </h1>
             <p className="text-sm md:text-base font-normal leading-6 mt-3 md:mt-4">
-              Сбалансированный режим: активность, отдых, питание, утреняя и вечерняя программа
+              {scheduleSection.description}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5 md:mt-10">
               <div className="block">
                 <ul className="flex flex-col gap-[15px]">
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Подъём
-                    </h6>
+                  {scheduleSection.items.map((item, index) => (
+                    <li key={index} className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
+                      <h6 className="text-sm md:text-lg font-normal leading-tight">
+                        {item.activity}
+                      </h6>
 
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      7:30
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Весёлая зарядка
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      7:50
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Наведение порядка
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      8:00
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Завтрак
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      8:30
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Утренняя встреча в «Оазисе»
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      9:30 - 10:30
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Общение по группам
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      11:00 - 11:30
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Общелагерная игра
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      11:45 - 12:45
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Обед
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      1:00
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Время для отдыха в своих комнатах / домиках
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      1:30 - 2:30
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Полдник
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      2:30
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Девочки — купание, мальчики — поделки
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      2:45 - 3:45
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Мальчики — купание, девочки — поделки
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      3:45 - 4:45
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Спортивные состязания
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      5:00
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Ужин
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      6:30
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Вечерняя встреча в «Оазисе»
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      7:30 - 9:00
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Вечерник/Snack
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      9:05 - 9:20
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Подготовка ко сну
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      9:20 - 10:00
-                    </p>
-                  </li>
-
-                  <li className="flex items-center justify-between gap-1 bordert-solid border-0 border-b border-[#9CB7BB] pb-[10px]">
-                    <h6 className="text-sm md:text-lg font-normal leading-tight">
-                      Отбой для всех
-                    </h6>
-
-                    <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
-                      10:00
-                    </p>
-                  </li>
+                      <p className="text-lg md:text-2xl font-semibold leading-tight text-right whitespace-nowrap">
+                        {item.time}
+                      </p>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="block">
                 <div className="block p-[26px] md:p-9 bg-[#9BD8DA]/20 rounded-xl mb-5">
                   <h1 className="text-lg md:text-2xl font-semibold leading-tight w-full max-w-[950px] uppercase mb-3 md:mb-[26px]">
-                    Что <span className="text-[#296B74]"> взять </span> с собой:
+                    {packingListSection.bringTitle} <span className="text-[#296B74]"> {packingListSection.bringTitleHighlight} </span> {packingListSection.bringTitleSuffix}
                   </h1>
 
                   <ul className="flex flex-col gap-3">
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Пастельные принадлежности (спальный мешок и подушку)
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Одежду на каждый день
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Тёплую кофту
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Одежду для купания (футболку для купания)
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Полотенце
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Спортивную одежду и обувь
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Кепка/Крем от загара/Средство от комаров
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Средства личной гигиены
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Фонарик
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Бутылка для воды
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Не давайте новую одежду, вещи не должны быть дорогими, всё-таки мы едем на природу
-                      </p>
-                    </li>
+                    {packingListSection.bringItems.map((item, index) => (
+                      <li key={index}>
+                        <p className="text-sm md:text-base font-normal leading-tight">
+                          — {item}
+                        </p>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
                 <div className="block p-[26px] md:p-9 bg-[#FFB62A]/20 rounded-xl">
                   <h1 className="text-lg md:text-2xl font-semibold leading-tight w-full max-w-[950px] uppercase mb-3 md:mb-[26px]">
-                    Что <span className="text-[#FF6A00]"> не нужно </span> брать с собой:
+                    {packingListSection.dontBringTitle} <span className="text-[#FF6A00]"> {packingListSection.dontBringTitleHighlight} </span> {packingListSection.dontBringTitleSuffix}
                   </h1>
 
                   <ul className="flex flex-col gap-3">
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Деньги
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Электронику
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Электронные игры
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Перочинные ножи или любое другое оружие
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Пищевые продукты
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Cellphones
-                      </p>
-                    </li>
+                    {packingListSection.dontBringItems.map((item, index) => (
+                      <li key={index}>
+                        <p className="text-sm md:text-base font-normal leading-tight">
+                          — {item}
+                        </p>
+                      </li>
+                    ))}
                   </ul>
 
                   <p className="text-sm md:text-base font-medium uppercase mt-5 leading-tight">
-                    Связь можно будет поддерживать через вожатого вашего ребёнка или директора лагеря
+                    {packingListSection.communicationNote}
                   </p>
                 </div>
               </div>
@@ -578,9 +308,9 @@ export default function Home() {
         <div className="auto_container z-10">
           <div className="wrap">
             <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[950px] uppercase">
-              Проживание, питание и правила — <br />
+              {accommodationSection.title} — <br />
               <span className="text-[#FF6A00]">
-                всё продумано для безопасности и комфорта
+                {accommodationSection.titleSuffix}
               </span>
             </h1>
 
@@ -588,183 +318,134 @@ export default function Home() {
               <div className="flex flex-col col-span-12 lg:col-span-5">
                 <div className="block mb-5 lg:mb-[140px]">
                   <h6 className="text-lg md:text-2xl font-semibold leading-tight mb-3 md:mb-[26px]">
-                    Условия проживания и питание
+                    {accommodationSection.accommodation.title}
                   </h6>
 
                   <ul>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Проживание в домиках на территории лагеря (не палатки)
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Кровати с матрасами
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Раздельное проживание мальчиков и девочек
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — 3-разовое питание + перекусы
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Вода и базовые бытовые условия
-                      </p>
-                    </li>
+                    {accommodationSection.accommodation.items.map((item, index) => (
+                      <li key={index}>
+                        <p className="text-sm md:text-base font-normal leading-tight">
+                          — {item}
+                        </p>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
-                <div className="block mb-10">
+                <div className="block lg:hidden mb-10">
                   <div className="block lg:w-[570px] relative ml-auto z-10">
                     <Image
-                      width={470}
-                      height={30}
-                      src="/images/rools-1.png"
+                      width={accommodationSection.images[0].width}
+                      height={accommodationSection.images[0].height}
+                      src={accommodationSection.images[0].src}
                       className='w-full h-full object-contain'
-                      alt="logo"
+                      alt={accommodationSection.images[0].alt}
                     />
                   </div>
                   <div className="block lg:w-[570px] relative mt-[-45px]">
                     <Image
-                      width={470}
-                      height={30}
-                      src="/images/rools-2.png"
+                      width={accommodationSection.images[1].width}
+                      height={accommodationSection.images[1].height}
+                      src={accommodationSection.images[1].src}
                       className='w-full h-full object-contain'
-                      alt="logo"
+                      alt={accommodationSection.images[1].alt}
                     />
                   </div>
                 </div>
 
                 <div className="block mb-5 lg:mb-[140px]">
                   <h6 className="text-lg md:text-2xl font-semibold leading-tight mb-3 md:mb-[26px]">
-                    Важно знать родителям
+                    {accommodationSection.parentTips.title}
                   </h6>
 
                   <ul>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Не давайте ребенку дорогую одежду
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Рекомендуется удобная спортивная одежда и обувь
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Обязательно положите ребёнку головной убор: кепку, панамку или бандану
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Лагерь не несёт ответственность за утерянные вещи
-                      </p>
-                    </li>
+                    {accommodationSection.parentTips.items.map((item, index) => (
+                      <li key={index}>
+                        <p className="text-sm md:text-base font-normal leading-tight">
+                          — {item}
+                        </p>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
-                <div className="block mb-10">
+                <div className="block lg:hidden  mb-10">
                   <div className="block lg:w-[570px] relative ml-auto z-10">
                     <Image
-                      width={470}
-                      height={30}
-                      src="/images/rools-3.png"
+                      width={accommodationSection.images[2].width}
+                      height={accommodationSection.images[2].height}
+                      src={accommodationSection.images[2].src}
                       className='w-full h-full object-contain'
-                      alt="logo"
+                      alt={accommodationSection.images[2].alt}
                     />
                   </div>
                   <div className="block lg:w-[570px] relative mt-[-10px]">
                     <Image
-                      width={470}
-                      height={30}
-                      src="/images/rools-4.png"
+                      width={accommodationSection.images[3].width}
+                      height={accommodationSection.images[3].height}
+                      src={accommodationSection.images[3].src}
                       className='w-full h-full object-contain'
-                      alt="logo"
+                      alt={accommodationSection.images[3].alt}
                     />
                   </div>
                 </div>
 
                 <div className="block">
                   <h6 className="text-lg md:text-2xl font-semibold leading-tight mb-3 md:mb-[26px]">
-                    Правила и ограничения
+                    {accommodationSection.rules.title}
                   </h6>
 
                   <ul>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Запрещены телефоны, планшеты и любая электроника
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Нельзя приносить деньги и ценные вещи
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Дети не могут покидать группу без разрешения
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — Запрещены агрессия, грубость и нарушение дисциплины
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-sm md:text-base font-normal leading-tight">
-                        — За серьезные нарушения возможен досрочный отъезд за счет родителей
-                      </p>
-                    </li>
+                    {accommodationSection.rules.items.map((item, index) => (
+                      <li key={index}>
+                        <p className="text-sm md:text-base font-normal leading-tight">
+                          — {item}
+                        </p>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
-                <Link href="/#" className="text-white text-sm md:text-lg font-semibold py-[18px] w-full bg-[#FF6A00] text-center block mt-[26px] rounded-lg cursor-pointer">
-                  Забронировать место на поток 2026
+                <Link href={accommodationSection.bookingButton.href} className="text-white text-sm md:text-lg font-semibold py-[18px] w-full bg-[#FF6A00] text-center block mt-[26px] rounded-lg cursor-pointer">
+                  {accommodationSection.bookingButton.text}
                 </Link>
               </div>
 
               <div className="hidden lg:block col-span-7">
                 <div className="block w-[570px] relative ml-auto z-10">
                   <Image
-                    width={470}
-                    height={30}
-                    src="/images/rools-1.png"
+                    width={accommodationSection.images[0].width}
+                    height={accommodationSection.images[0].height}
+                    src={accommodationSection.images[0].src}
                     className='w-full h-full object-contain'
-                    alt="logo"
+                    alt={accommodationSection.images[0].alt}
                   />
                 </div>
                 <div className="block w-[570px] relative mt-[-80px]">
                   <Image
-                    width={470}
-                    height={30}
-                    src="/images/rools-2.png"
+                    width={accommodationSection.images[1].width}
+                    height={accommodationSection.images[1].height}
+                    src={accommodationSection.images[1].src}
                     className='w-full h-full object-contain'
-                    alt="logo"
+                    alt={accommodationSection.images[1].alt}
                   />
                 </div>
                 <div className="block w-[570px] relative ml-auto z-10 mt-[-80px]">
                   <Image
-                    width={470}
-                    height={30}
-                    src="/images/rools-3.png"
+                    width={accommodationSection.images[2].width}
+                    height={accommodationSection.images[2].height}
+                    src={accommodationSection.images[2].src}
                     className='w-full h-full object-contain'
-                    alt="logo"
+                    alt={accommodationSection.images[2].alt}
                   />
                 </div>
                 <div className="block w-[570px] relative mt-[-80px]">
                   <Image
-                    width={470}
-                    height={30}
-                    src="/images/rools-4.png"
+                    width={accommodationSection.images[3].width}
+                    height={accommodationSection.images[3].height}
+                    src={accommodationSection.images[3].src}
                     className='w-full h-full object-contain'
-                    alt="logo"
+                    alt={accommodationSection.images[3].alt}
                   />
                 </div>
               </div>
@@ -785,69 +466,46 @@ export default function Home() {
           <div className="wrap overflow-hidden">
             <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[950px] uppercase">
               <span className="text-[#FF6A00]">
-                Где и когда </span> проходит лагерь
+                {homeLocationSection.titleHighlight} </span> {homeLocationSection.titleSuffix}
             </h1>
             <p className="text-sm md:text-base font-normal leading-6 mt-3 md:mt-4">
-              Вся организационная информация — чтобы вы могли спокойно спланировать поездку
+              {homeLocationSection.subtitle}
             </p>
 
             <div className="flex flex-col lg:flex-row gap-10 justify-between relative bg-[#FAF2ED] rounded-xl py-[52px] px-[30px] mt-5 md:mt-10">
               <div className="block">
                 <h6 className="text-lg md:text-2xl font-medium leading-tight mb-6">
-                  Даты потока
+                  {homeLocationSection.datesTitle}
                 </h6>
                 <h4 className="text-2xl md:text-4xl font-semibold leading-tight text-[#FF6A00] mb-3 md:mb-6">
-                  9 августа — 15 августа
+                  {homeLocationSection.dates}
                 </h4>
                 <p className="text-sm md:text-base font-normal leading-tight mb-[6px]">
-                  Заезд: воскресенье в 5:00 pm
+                  {homeLocationSection.arrival}
                 </p>
                 <p className="text-sm md:text-base font-normal leading-tight">
-                  Выезд: суббота с 1:00 pm до 3:00 pm
+                  {homeLocationSection.departure}
                 </p>
               </div>
 
               <div className="block w-full md:w-[333px] lg:ml-auto md:mr-20">
                 <h5 className="text-lg md:text-2xl font-semibold leading-tight">
-                  Важно
+                  {homeLocationSection.importantTitle}
                 </h5>
 
                 <div className="flex flex-col gap-3 mt-3 md:mt-9">
-                  <div className="flex gap-3">
-                    <span className="min-w-[26px] md:min-w-8 block">
-                      <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-
-                    <p className="text-sm md:text-base font-normal">
-                      Check in
-                    </p>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <span className="min-w-[26px] md:min-w-8 block">
-                      <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-
-                    <p className="text-sm md:text-base font-normal">
-                      Передача нужной информации и медикаментов — мед. работникам
-                    </p>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <span className="min-w-[26px] md:min-w-8 block">
-                      <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-
-                    <p className="text-sm md:text-base font-normal">
-                      Знакомство ребёнка с вожатым
-                    </p>
-                  </div>
+                  {homeLocationSection.importantItems.map((item, index) => (
+                    <div key={index} className="flex gap-3">
+                      <span className="min-w-[26px] md:min-w-8 block">
+                        <svg className="block w-full h-full object-contain" width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1.30005 10.2998L8.30005 17.2998L24.3 1.2998" stroke="#FF6A00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <p className="text-sm md:text-base font-normal">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -860,54 +518,38 @@ export default function Home() {
 
             <div className="block mt-10">
               <h5 className="text-[18px] md:text-2xl font-semibold leading-tight mb-3 md:mb-5">
-                Для родителей
+                {homeLocationSection.forParentsTitle}
               </h5>
               <p className="text-base font-normal leading-tight max-w-[445px]">
-                Родители привозят детей и могут ознакомиться с территорией лагеря и местом проживания ребенка
+                {homeLocationSection.forParentsDescription}
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:flex items-center justify-between gap-x-10 gap-y-5 lg:gap-2 mt-5 md:mt-10">
-                <div className="flex items-center gap-4 w-full lg:max-w-[300px]">
-                  <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                  <p className="text-sm md:text-base font-normal leading-tight">
-                    Зарегистрироваться необходимо до ужина — 6:30 pm
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 w-full lg:max-w-[205px]">
-                  <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                  <p className="text-sm md:text-base font-normal leading-tight">
-                    Первая программа начинается в 7:00 pm
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 w-full lg:max-w-[225px]">
-                  <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                  <p className="text-sm md:text-base font-normal leading-tight">
-                    Приглашаем на пикник в день выезда в 1:00 pm
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 w-full lg:max-w-[160px]">
-                  <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                  <p className="text-sm md:text-base font-normal leading-tight">
-                    После пикника можно уезжать
-                  </p>
-                </div>
+                {homeLocationSection.forParentsItems.map((item, index) => (
+                  <div key={index} className="flex items-center gap-4 w-full">
+                    <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
+                    <p className="text-sm md:text-base font-normal leading-tight">
+                      {item}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="map relative md:h-[400px]  rounded-xl overflow-hidden mt-5 md:mt-[60px]">
               <div style={{ position: 'relative', overflow: 'hidden', width: '100%', height: '400px' }}>
-                <a href="https://yandex.com/maps?utm_medium=mapframe&utm_source=maps" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}>Yandex Maps</a>
-                <a href="https://yandex.com/maps/?l=sat&ll=-93.951743%2C46.404009&utm_medium=mapframe&utm_source=maps&z=15" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '14px' }}>Yandex Maps</a>
-                <iframe src="https://yandex.com/map-widget/v1/?l=sat&ll=-93.951743%2C46.404009&z=15&pt=-93.951743,46.404009,pm2rdm" width="100%" height="100%" frameBorder="0" allowFullScreen={true} style={{ position: 'relative' }}></iframe>
+                <a href={homeLocationSection.map.providerHref} style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}>{homeLocationSection.map.providerLabel}</a>
+                <a href={homeLocationSection.map.directionsHref} style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '14px' }}>{homeLocationSection.map.providerLabel}</a>
+                <iframe src={homeLocationSection.map.iframeSrc} width="100%" height="100%" frameBorder="0" allowFullScreen={true} style={{ position: 'relative' }}></iframe>
               </div>
 
-              <div className="block w-full md:max-w-[440px] mt-5 md:mt-0 relative! md:absolute md:left-10 md:bottom-9 bg-white md:bg-white/95 rounded-lg p-[18px] md:p-[26px]">
+              <div className="block w-full md:max-w-[440px] mt-5 md:mt-0 relative! md:absolute md:left-10 md:bottom-[160px] bg-white md:bg-white/95 rounded-lg p-[18px] md:p-[26px]">
                 <h6 className="text-[18px] md:text-2xl font-semibold leading-tight text-[#FF6A00] mb-5">
-                  Локация
+                  {homeLocationSection.map.locationTitle}
                 </h6>
                 <p className="text-sm md:text-base font-normal leading-tight">
-                  Eagle Lake Camp and Retreat Center <br />
-                  17040 Co. Rd 102, Brainerd, MN 56401
+                  {homeLocationSection.map.locationName} <br />
+                  {homeLocationSection.map.locationAddress}
                 </p>
               </div>
             </div>
@@ -919,77 +561,57 @@ export default function Home() {
         <div className="auto_container">
           <div className="wrap">
             <h1 className="text-2xl md:text-[36px] font-semibold leading-tight w-full max-w-[720px] uppercase">
-              Лагерь проводится благодаря <span className="text-[#FF6A00]"> волонтёрам и поддержке людей </span>
+              {supportSection.title} <span className="text-[#FF6A00]"> {supportSection.titleHighlight} </span>
             </h1>
             <p className="text-sm md:text-base font-normal leading-6 mt-3 md:mt-4">
-              Мы некоммерческая организация —  и делаем этот лагерь доступным для детей
+              {supportSection.subtitle}
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[50px] mt-5 md:mt-10 min-h-[620px] p-6 md:p-10 bg-[url('/images/volunteer.png')] bg-cover bg-center bg-no-repeat rounded-2xl">
               <div className="block bg-white/95 rounded-lg p-[18px] md:p-[30px] w-full max-w-[540px] h-fit mt-auto">
                 <p className="text-sm md:text-base font-normal leading-tight mb-[18px]">
-                  Oasis Camp проводится на добровольных и волонтёрских началах. Наша команда — это люди, которые вкладывают своё время и силы, чтобы дети могли провести безопасное, активное и полезное лето.
+                  {supportSection.description}
                 </p>
 
                 <p className="text-[#FF6A00] text-sm md:text-base font-normal leading-tight">
-                  Если вы хотите поддержать этот проект — мы будем искренне благодарны
+                  {supportSection.cta}
                 </p>
 
                 <div className="flex flex-col mt-10 md:mt-[60px] gap-[10px]">
-                  <Link href="#" className="text-sm md:text-lg font-semibold leading-tight py-[18px] text-center text-white bg-[#FF6A00] rounded-lg">
-                    Поддержать лагерь
+                  <Link href={supportSection.buttons[0].href} className="text-sm md:text-lg font-semibold leading-tight py-[18px] text-center text-white bg-[#FF6A00] rounded-lg">
+                    {supportSection.buttons[0].text}
                   </Link>
 
-                  <Link href="#" className="text-sm md:text-lg font-semibold leading-tight py-[18px] text-center bg-[#9DB7BC] rounded-lg">
-                    Сделать пожертвование
+                  <Link href={supportSection.buttons[1].href} className="text-sm md:text-lg font-semibold leading-tight py-[18px] text-center bg-[#9DB7BC] rounded-lg">
+                    {supportSection.buttons[1].text}
                   </Link>
                 </div>
               </div>
 
               <div className="hidden lg:block mt-auto">
                 <div className="flex flex-col gap-5 mt-5 md:mt-10">
-                  <div className="flex items-center gap-4">
-                    <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-lg font-semibold uppercase leading-tight text-white">
-                      Мы имеем статус non-profit organization
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-lg font-semibold uppercase leading-tight text-white">
-                      Все пожертвования могут быть списаны с налогооблагаемого дохода
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                    <p className="text-lg font-semibold uppercase leading-tight text-white">
-                      Вы помогаете сделать отдых доступным для большего количества детей
-                    </p>
-                  </div>
+                  {supportSection.items.map((item, index) => (
+                    <div key={index} className="flex items-center gap-4">
+                      <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
+                      <p className="text-lg font-semibold uppercase leading-tight text-white">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
             <div className="block lg:hidden mt-auto">
               <div className="flex flex-col gap-5 mt-5 md:mt-10">
-                <div className="flex items-center gap-4">
-                  <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                  <p className="text-lg font-semibold uppercase leading-tight">
-                    Мы имеем статус non-profit organization
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                  <p className="text-lg font-semibold uppercase leading-tight">
-                    Все пожертвования могут быть списаны с налогооблагаемого дохода
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
-                  <p className="text-lg font-semibold uppercase leading-tight">
-                    Вы помогаете сделать отдых доступным для большего количества детей
-                  </p>
-                </div>
+                {supportSection.items.map((item, index) => (
+                  <div key={index} className="flex items-center gap-4">
+                    <span className="min-w-[14px] h-[14px] block bg-[#FF6A00] rounded-full"></span>
+                    <p className="text-lg font-semibold uppercase leading-tight">
+                      {item}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
